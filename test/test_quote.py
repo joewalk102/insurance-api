@@ -25,6 +25,18 @@ class TestQuoteCreate(APITestCase):
             "address": {"zipcode": 99999, "state": "WA"},
         }
 
+    def test_create_with_qid_provided(self):
+        provided_qid = "FFFFFFFFFF"
+        data = {
+            "qid": provided_qid,
+            "date_effective": "2022-01-01T00:00:00.000",
+            "date_previous_canceled": "2022-01-01",
+            "is_owned": False,
+            "address": {"state": "WA", "zipcode": "99999"},
+        }
+        response = self.client.post("/quotes/", data, format="json").json()
+        assert response["qid"] != provided_qid
+
     def test_dedupe_address(self):
         data = {
             "date_effective": "2022-01-01T00:00:00.000",
@@ -92,13 +104,15 @@ class TestQuoteEdit(APITestCase):
             "address": {"state": "WA", "zipcode": "99999"},
         }
         response = self.client.post("/quotes/", initial_data, format="json").json()
+        initial_qid = response["qid"]
+
         new_data = {
             "date_effective": "2022-01-01T00:00:00.000",
             "date_previous_canceled": None,
             "is_owned": True,
             "address": {"state": "WA", "zipcode": "99999"},
         }
-        response = self.client.patch(f"/quotes/{response['qid']}/", new_data, format="json")
+        response = self.client.patch(f"/quotes/{initial_qid}/", new_data, format="json")
 
         obj = Quote.objects.first()
 

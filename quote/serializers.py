@@ -28,7 +28,7 @@ class QuoteSerializer(serializers.ModelSerializer):
             "cost_biannually",
         ]
 
-    qid = serializers.CharField(read_only=True)
+    qid = serializers.CharField(required=False)
     date_effective = serializers.DateTimeField()
     date_previous_canceled = serializers.DateField(required=False, allow_null=True)
     is_owned = serializers.BooleanField()
@@ -39,6 +39,9 @@ class QuoteSerializer(serializers.ModelSerializer):
     address = AddressSerializer(required=True)
 
     def create(self, validated_data):
+        if "qid" in validated_data:
+            # QID should be generated, not provided.
+            del validated_data["qid"]
         for k, v in validated_data.items():
             if k == "address":
                 validated_data[k], _ = AddressSerializer().create(v)
@@ -48,7 +51,7 @@ class QuoteSerializer(serializers.ModelSerializer):
         for k, v in validated_data.items():
             if k == "address":
                 validated_data[k], _ = AddressSerializer().create(v)
-        return super().create(validated_data)
+        return super().update(instance, validated_data)
 
     def validate(self, attrs):
         try:
