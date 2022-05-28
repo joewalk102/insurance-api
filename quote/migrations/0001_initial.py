@@ -8,26 +8,43 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Address',
+            name="Address",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('zipcode', models.IntegerField()),
-                ('state', models.CharField(max_length=2)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("zipcode", models.IntegerField()),
+                ("state", models.CharField(max_length=2)),
             ],
         ),
         migrations.CreateModel(
-            name='Quote',
+            name="Quote",
             fields=[
-                ('qid', models.CharField(max_length=10, primary_key=True, serialize=False)),
-                ('date_effective', models.DateTimeField()),
-                ('date_previous_canceled', models.DateField(null=True)),
-                ('is_owned', models.BooleanField()),
-                ('address', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='quote.address')),
+                (
+                    "qid",
+                    models.CharField(max_length=10, primary_key=True, serialize=False),
+                ),
+                ("date_effective", models.DateTimeField()),
+                ("date_previous_canceled", models.DateField(null=True)),
+                ("is_owned", models.BooleanField()),
+                (
+                    "address",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="quote.address",
+                    ),
+                ),
             ],
         ),
     ]

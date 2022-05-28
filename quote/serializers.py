@@ -18,15 +18,23 @@ class AddressSerializer(serializers.ModelSerializer):
 class QuoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Quote
-        fields=["qid", "date_effective", "date_previous_canceled", "is_owned", "address", "cost_monthly", "cost_biannually"]
+        fields = [
+            "qid",
+            "date_effective",
+            "date_previous_canceled",
+            "is_owned",
+            "address",
+            "cost_monthly",
+            "cost_biannually",
+        ]
 
     qid = serializers.CharField(read_only=True)
     date_effective = serializers.DateTimeField()
-    date_previous_canceled = serializers.DateField(required=False)
+    date_previous_canceled = serializers.DateField(required=False, allow_null=True)
     is_owned = serializers.BooleanField()
 
-    cost_biannually = serializers.SerializerMethodField('get_cost_biannually')
-    cost_monthly = serializers.SerializerMethodField('get_cost_monthly')
+    cost_biannually = serializers.SerializerMethodField("get_cost_biannually")
+    cost_monthly = serializers.SerializerMethodField("get_cost_monthly")
 
     address = AddressSerializer(required=True)
 

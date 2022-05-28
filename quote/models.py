@@ -13,14 +13,71 @@ LETTERS_AND_NUMBERS = string.ascii_uppercase + string.digits
 
 class Address(models.Model):
     states_lookup = {
-        "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
-        "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-        "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-        "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+        "AL",
+        "AK",
+        "AZ",
+        "AR",
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "FL",
+        "GA",
+        "HI",
+        "ID",
+        "IL",
+        "IN",
+        "IA",
+        "KS",
+        "KY",
+        "LA",
+        "ME",
+        "MD",
+        "MA",
+        "MI",
+        "MN",
+        "MS",
+        "MO",
+        "MT",
+        "NE",
+        "NV",
+        "NH",
+        "NJ",
+        "NM",
+        "NY",
+        "NC",
+        "ND",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VT",
+        "VA",
+        "WA",
+        "WV",
+        "WI",
+        "WY",
     }
     states_with_volcanoes = {
-        "AK", "AZ", "CA", "CO", "HI", "ID", "NV", "NM", "OR", "UT", "WA", "WY"
+        "AK",
+        "AZ",
+        "CA",
+        "CO",
+        "HI",
+        "ID",
+        "NV",
+        "NM",
+        "OR",
+        "UT",
+        "WA",
+        "WY",
     }
 
     zipcode = models.IntegerField()
@@ -69,7 +126,7 @@ class Quote(models.Model):
             "state_with_volcano": {
                 "applies": self.address.has_volcano,
                 "multiplier": FEES.STATE_WITH_VOLCANO.PERCENT / 100,
-            }
+            },
         }
 
     @property
@@ -82,7 +139,7 @@ class Quote(models.Model):
             "owns_property": {
                 "applies": self.is_owned,
                 "multiplier": DISCOUNTS.OWNED_PROPERTY.PERCENT / 100,
-            }
+            },
         }
 
     def _calc_fees(self, base_cost):
@@ -106,7 +163,9 @@ class Quote(models.Model):
     @property
     def cost_and_breakdown_biannually(self):
         if self._cost_biannually is None or self._breakdown_biannually is None:
-            self._cost_biannually, self._breakdown_biannually = self._calc_fees(VOLCANO_INSURANCE.BASE_COST_BIANNUALLY)
+            self._cost_biannually, self._breakdown_biannually = self._calc_fees(
+                VOLCANO_INSURANCE.BASE_COST_BIANNUALLY
+            )
         return self._cost_biannually, self._breakdown_biannually
 
     @property
@@ -120,7 +179,9 @@ class Quote(models.Model):
     @property
     def cost_and_breakdown_monthly(self):
         if self._cost_monthly is None or self._breakdown_monthly is None:
-            self._cost_monthly, self._breakdown_monthly = self._calc_fees(VOLCANO_INSURANCE.BASE_COST_MONTHLY)
+            self._cost_monthly, self._breakdown_monthly = self._calc_fees(
+                VOLCANO_INSURANCE.BASE_COST_MONTHLY
+            )
         return self._cost_monthly, self._breakdown_monthly
 
     @property

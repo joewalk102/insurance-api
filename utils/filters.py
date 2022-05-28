@@ -7,6 +7,7 @@ class AllowStaffLimitUserFilterBackend(filters.BaseFilterBackend):
     user is not a staff member. If they are staff, they can
     see all other results.
     """
+
     def filter_queryset(self, request, queryset, view):
         if request.user.is_staff:
             return queryset

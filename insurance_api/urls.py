@@ -22,10 +22,10 @@ from quote import views as quote_views
 
 router = routers.DefaultRouter()
 
-router.register(r'quotes', quote_views.QuoteViewSet)
+router.register(r"quotes", quote_views.QuoteViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path("admin/", admin.site.urls),
+    path("", include(router.urls)),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
