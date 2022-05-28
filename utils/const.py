@@ -1,0 +1,19 @@
+class VOLCANO_INSURANCE:
+    BASE_COST_BIANNUALLY = 59.94
+    BASE_COST_MONTHLY = BASE_COST_BIANNUALLY / 6
+
+
+class FEES:
+    class CANCELED_POLICY:
+        PERCENT = 15
+
+    class STATE_WITH_VOLCANO:
+        PERCENT = 25
+
+
+class DISCOUNTS:
+    class NO_CANCELLED_POLICY:
+        PERCENT = 10
+
+    class OWNED_PROPERTY:
+        PERCENT = 20
