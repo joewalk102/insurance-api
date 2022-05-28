@@ -91,14 +91,14 @@ class TestQuoteEdit(APITestCase):
             "is_owned": False,
             "address": {"state": "WA", "zipcode": "99999"},
         }
-        self.client.post("/quotes/", initial_data, format="json")
+        response = self.client.post("/quotes/", initial_data, format="json").json()
         new_data = {
             "date_effective": "2022-01-01T00:00:00.000",
             "date_previous_canceled": None,
             "is_owned": True,
             "address": {"state": "WA", "zipcode": "99999"},
         }
-        response = self.client.post("/quotes/", new_data, format="json")
+        response = self.client.patch(f"/quotes/{response['qid']}/", new_data, format="json")
 
         obj = Quote.objects.first()
 
