@@ -78,8 +78,18 @@ class QuoteSerializer(serializers.ModelSerializer):
 class QuotePurchaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = QuotePurchase
-        fields = ["payment_frequency", "payment_amount", "quote", "discount_canceled_amt", "discount_owns_property_amt",
-                  "fee_canceled_amt", "fee_state_amt", "cost_breakdown", "quote_id", "pk"]
+        fields = [
+            "payment_frequency",
+            "payment_amount",
+            "quote",
+            "discount_canceled_amt",
+            "discount_owns_property_amt",
+            "fee_canceled_amt",
+            "fee_state_amt",
+            "cost_breakdown",
+            "quote_id",
+            "pk",
+        ]
 
     pk = serializers.IntegerField(read_only=True)
     payment_frequency = serializers.CharField(required=True)
