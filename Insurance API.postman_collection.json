@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Quotes",
+			"name": "Quote",
 			"item": [
 				{
 					"name": "Create Quote",
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"date_effective\": \"2022-01-01T00:00:00.000\",\n    \"is_owned\": true,\n    \"address\": {\n        \"state\": \"MO\",\n        \"zipcode\": \"99999\"\n    }\n}\n",
+							"raw": "{\n    \"date_effective\": \"2022-01-01T00:00:00.000\",\n    \"is_owned\": true,\n    \"address\": {\n        \"state\": \"WA\",\n        \"zipcode\": \"99999\"\n    }\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,11 +24,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/quotes/",
+							"raw": "{{host}}/quote/quotes/",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
+								"quote",
 								"quotes",
 								""
 							]
@@ -36,13 +37,13 @@
 					},
 					"response": [
 						{
-							"name": "Create Quote - All Fields",
+							"name": "Create Quote",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"date_effective\": \"2022-01-01T00:00:00.000\",\n    \"date_previous_canceled\": \"2022-01-01\",\n    \"is_owned\": false,\n    \"address\": {\n        \"state\": \"MO\",\n        \"zipcode\": \"99999\"\n    }\n}\n",
+									"raw": "{\n    \"date_effective\": \"2022-01-01T00:00:00.000\",\n    \"is_owned\": true,\n    \"address\": {\n        \"state\": \"WA\",\n        \"zipcode\": \"99999\"\n    }\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -50,11 +51,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/quotes/",
+									"raw": "{{host}}/quote/quotes/",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
+										"quote",
 										"quotes",
 										""
 									]
@@ -66,7 +68,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sat, 28 May 2022 17:55:40 GMT"
+									"value": "Sat, 28 May 2022 22:25:31 GMT"
 								},
 								{
 									"key": "Server",
@@ -90,7 +92,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "204"
+									"value": "781"
 								},
 								{
 									"key": "X-Content-Type-Options",
@@ -99,87 +101,10 @@
 								{
 									"key": "Referrer-Policy",
 									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"qid\": \"AH8WQD5QM6\",\n    \"date_effective\": \"2022-01-01T00:00:00Z\",\n    \"date_previous_canceled\": \"2022-01-01\",\n    \"is_owned\": false,\n    \"address\": {\n        \"zipcode\": 99999,\n        \"state\": \"MO\"\n    },\n    \"cost_monthly\": 11.4885,\n    \"cost_biannually\": 68.931\n}"
-						},
-						{
-							"name": "Create Quote - Not Cancalled",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"date_effective\": \"2022-01-01T00:00:00.000\",\n    \"is_owned\": true,\n    \"address\": {\n        \"state\": \"MO\",\n        \"zipcode\": \"99999\"\n    }\n}\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/quotes/",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"quotes",
-										""
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Sat, 28 May 2022 17:56:04 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.9.12"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept, Cookie"
-								},
-								{
-									"key": "Allow",
-									"value": "GET, POST, HEAD, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "205"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"qid\": \"LSRYB093DB\",\n    \"date_effective\": \"2022-01-01T00:00:00Z\",\n    \"date_previous_canceled\": null,\n    \"is_owned\": true,\n    \"address\": {\n        \"zipcode\": 99999,\n        \"state\": \"MO\"\n    },\n    \"cost_monthly\": 6.992999999999999,\n    \"cost_biannually\": 41.958\n}"
+							"body": "{\n    \"qid\": \"7CZQ3GIO0S\",\n    \"date_effective\": \"2022-01-01T00:00:00Z\",\n    \"date_previous_canceled\": null,\n    \"is_owned\": true,\n    \"address\": {\n        \"zipcode\": 99999,\n        \"state\": \"WA\"\n    },\n    \"cost_monthly\": \"9.49\",\n    \"cost_biannually\": \"56.94\",\n    \"breakdown_monthly\": {\n        \"fees\": {\n            \"canceled\": {\n                \"applies\": false,\n                \"multiplier\": 0.15,\n                \"money\": 0\n            },\n            \"state_with_volcano\": {\n                \"applies\": true,\n                \"multiplier\": 0.25,\n                \"money\": 2.5\n            }\n        },\n        \"discounts\": {\n            \"canceled\": {\n                \"applies\": true,\n                \"multiplier\": 0.1,\n                \"money\": 1\n            },\n            \"owns_property\": {\n                \"applies\": true,\n                \"multiplier\": 0.2,\n                \"money\": 2\n            }\n        }\n    },\n    \"breakdown_biannually\": {\n        \"fees\": {\n            \"canceled\": {\n                \"applies\": false,\n                \"multiplier\": 0.15,\n                \"money\": 0\n            },\n            \"state_with_volcano\": {\n                \"applies\": true,\n                \"multiplier\": 0.25,\n                \"money\": 14.98\n            }\n        },\n        \"discounts\": {\n            \"canceled\": {\n                \"applies\": true,\n                \"multiplier\": 0.1,\n                \"money\": 5.99\n            },\n            \"owns_property\": {\n                \"applies\": true,\n                \"multiplier\": 0.2,\n                \"money\": 11.99\n            }\n        }\n    }\n}"
 						}
 					]
 				},
@@ -201,11 +126,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/quotes/?format=json",
+							"raw": "{{host}}/quote/quotes/?format=json",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
+								"quote",
 								"quotes",
 								""
 							],
@@ -219,7 +145,7 @@
 					},
 					"response": [
 						{
-							"name": "Create Quote Copy",
+							"name": "Get List of Quotes",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -233,11 +159,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/quotes/?format=json",
+									"raw": "{{host}}/quote/quotes/?format=json",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
+										"quote",
 										"quotes",
 										""
 									],
@@ -255,7 +182,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sat, 28 May 2022 17:53:30 GMT"
+									"value": "Sat, 28 May 2022 22:25:51 GMT"
 								},
 								{
 									"key": "Server",
@@ -279,7 +206,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "1061"
+									"value": "3169"
 								},
 								{
 									"key": "X-Content-Type-Options",
@@ -288,14 +215,10 @@
 								{
 									"key": "Referrer-Policy",
 									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"count\": 5,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"qid\": \"521WX5OE5J\",\n            \"date_effective\": \"2022-01-01T00:00:00Z\",\n            \"date_previous_canceled\": null,\n            \"is_owned\": true,\n            \"address\": {\n                \"zipcode\": 99999,\n                \"state\": \"WA\"\n            },\n            \"cost_monthly\": 9.4905,\n            \"cost_biannually\": 56.943\n        },\n        {\n            \"qid\": \"42I6XF83GB\",\n            \"date_effective\": \"2022-01-01T00:00:00Z\",\n            \"date_previous_canceled\": \"2022-01-01\",\n            \"is_owned\": true,\n            \"address\": {\n                \"zipcode\": 99999,\n                \"state\": \"WA\"\n            },\n            \"cost_monthly\": 11.988,\n            \"cost_biannually\": 71.928\n        },\n        {\n            \"qid\": \"CVTVL10Q6E\",\n            \"date_effective\": \"2022-01-01T00:00:00Z\",\n            \"date_previous_canceled\": \"2022-01-01\",\n            \"is_owned\": false,\n            \"address\": {\n                \"zipcode\": 99999,\n                \"state\": \"WA\"\n            },\n            \"cost_monthly\": 13.986,\n            \"cost_biannually\": 83.916\n        },\n        {\n            \"qid\": \"TUTFQ1J6HT\",\n            \"date_effective\": \"2022-01-01T00:00:00Z\",\n            \"date_previous_canceled\": \"2022-01-01\",\n            \"is_owned\": false,\n            \"address\": {\n                \"zipcode\": 99999,\n                \"state\": \"WA\"\n            },\n            \"cost_monthly\": 13.986,\n            \"cost_biannually\": 83.916\n        },\n        {\n            \"qid\": \"JHAISNILUH\",\n            \"date_effective\": \"2022-01-01T00:00:00Z\",\n            \"date_previous_canceled\": \"2022-01-01\",\n            \"is_owned\": false,\n            \"address\": {\n                \"zipcode\": 99999,\n                \"state\": \"WA\"\n            },\n            \"cost_monthly\": 13.986,\n            \"cost_biannually\": 83.916\n        }\n    ]\n}"
+							"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"qid\": \"ZQMDJPS98O\",\n            \"date_effective\": \"2022-01-01T00:00:00Z\",\n            \"date_previous_canceled\": null,\n            \"is_owned\": true,\n            \"address\": {\n                \"zipcode\": 99999,\n                \"state\": \"MO\"\n            },\n            \"cost_monthly\": \"6.99\",\n            \"cost_biannually\": \"41.96\",\n            \"breakdown_monthly\": {\n                \"fees\": {\n                    \"canceled\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.15,\n                        \"money\": 0\n                    },\n                    \"state_with_volcano\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.25,\n                        \"money\": 0\n                    }\n                },\n                \"discounts\": {\n                    \"canceled\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.1,\n                        \"money\": 1\n                    },\n                    \"owns_property\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.2,\n                        \"money\": 2\n                    }\n                }\n            },\n            \"breakdown_biannually\": {\n                \"fees\": {\n                    \"canceled\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.15,\n                        \"money\": 0\n                    },\n                    \"state_with_volcano\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.25,\n                        \"money\": 0\n                    }\n                },\n                \"discounts\": {\n                    \"canceled\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.1,\n                        \"money\": 5.99\n                    },\n                    \"owns_property\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.2,\n                        \"money\": 11.99\n                    }\n                }\n            }\n        },\n        {\n            \"qid\": \"YBG3SGYA4N\",\n            \"date_effective\": \"2022-01-01T00:00:00Z\",\n            \"date_previous_canceled\": null,\n            \"is_owned\": true,\n            \"address\": {\n                \"zipcode\": 99999,\n                \"state\": \"MO\"\n            },\n            \"cost_monthly\": \"6.99\",\n            \"cost_biannually\": \"41.96\",\n            \"breakdown_monthly\": {\n                \"fees\": {\n                    \"canceled\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.15,\n                        \"money\": 0\n                    },\n                    \"state_with_volcano\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.25,\n                        \"money\": 0\n                    }\n                },\n                \"discounts\": {\n                    \"canceled\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.1,\n                        \"money\": 1\n                    },\n                    \"owns_property\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.2,\n                        \"money\": 2\n                    }\n                }\n            },\n            \"breakdown_biannually\": {\n                \"fees\": {\n                    \"canceled\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.15,\n                        \"money\": 0\n                    },\n                    \"state_with_volcano\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.25,\n                        \"money\": 0\n                    }\n                },\n                \"discounts\": {\n                    \"canceled\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.1,\n                        \"money\": 5.99\n                    },\n                    \"owns_property\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.2,\n                        \"money\": 11.99\n                    }\n                }\n            }\n        },\n        {\n            \"qid\": \"QFZHRL8OO3\",\n            \"date_effective\": \"2022-01-01T00:00:00Z\",\n            \"date_previous_canceled\": null,\n            \"is_owned\": false,\n            \"address\": {\n                \"zipcode\": 99999,\n                \"state\": \"WA\"\n            },\n            \"cost_monthly\": \"11.49\",\n            \"cost_biannually\": \"68.93\",\n            \"breakdown_monthly\": {\n                \"fees\": {\n                    \"canceled\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.15,\n                        \"money\": 0\n                    },\n                    \"state_with_volcano\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.25,\n                        \"money\": 2.5\n                    }\n                },\n                \"discounts\": {\n                    \"canceled\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.1,\n                        \"money\": 1\n                    },\n                    \"owns_property\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.2,\n                        \"money\": 0\n                    }\n                }\n            },\n            \"breakdown_biannually\": {\n                \"fees\": {\n                    \"canceled\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.15,\n                        \"money\": 0\n                    },\n                    \"state_with_volcano\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.25,\n                        \"money\": 14.98\n                    }\n                },\n                \"discounts\": {\n                    \"canceled\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.1,\n                        \"money\": 5.99\n                    },\n                    \"owns_property\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.2,\n                        \"money\": 0\n                    }\n                }\n            }\n        },\n        {\n            \"qid\": \"7CZQ3GIO0S\",\n            \"date_effective\": \"2022-01-01T00:00:00Z\",\n            \"date_previous_canceled\": null,\n            \"is_owned\": true,\n            \"address\": {\n                \"zipcode\": 99999,\n                \"state\": \"WA\"\n            },\n            \"cost_monthly\": \"9.49\",\n            \"cost_biannually\": \"56.94\",\n            \"breakdown_monthly\": {\n                \"fees\": {\n                    \"canceled\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.15,\n                        \"money\": 0\n                    },\n                    \"state_with_volcano\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.25,\n                        \"money\": 2.5\n                    }\n                },\n                \"discounts\": {\n                    \"canceled\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.1,\n                        \"money\": 1\n                    },\n                    \"owns_property\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.2,\n                        \"money\": 2\n                    }\n                }\n            },\n            \"breakdown_biannually\": {\n                \"fees\": {\n                    \"canceled\": {\n                        \"applies\": false,\n                        \"multiplier\": 0.15,\n                        \"money\": 0\n                    },\n                    \"state_with_volcano\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.25,\n                        \"money\": 14.98\n                    }\n                },\n                \"discounts\": {\n                    \"canceled\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.1,\n                        \"money\": 5.99\n                    },\n                    \"owns_property\": {\n                        \"applies\": true,\n                        \"multiplier\": 0.2,\n                        \"money\": 11.99\n                    }\n                }\n            }\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -317,13 +240,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/quotes/521WX5OE5J/?format=json",
+							"raw": "{{host}}/quote/quotes/ZQMDJPS98O/?format=json",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
+								"quote",
 								"quotes",
-								"521WX5OE5J",
+								"ZQMDJPS98O",
 								""
 							],
 							"query": [
@@ -336,7 +260,7 @@
 					},
 					"response": [
 						{
-							"name": "Get List Copy",
+							"name": "Get Single Quote",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -350,13 +274,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/quotes/521WX5OE5J/?format=json",
+									"raw": "{{host}}/quote/quotes/ZQMDJPS98O/?format=json",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
+										"quote",
 										"quotes",
-										"521WX5OE5J",
+										"ZQMDJPS98O",
 										""
 									],
 									"query": [
@@ -373,7 +298,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sat, 28 May 2022 17:59:05 GMT"
+									"value": "Sat, 28 May 2022 22:26:17 GMT"
 								},
 								{
 									"key": "Server",
@@ -397,7 +322,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "194"
+									"value": "777"
 								},
 								{
 									"key": "X-Content-Type-Options",
@@ -406,14 +331,10 @@
 								{
 									"key": "Referrer-Policy",
 									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"qid\": \"521WX5OE5J\",\n    \"date_effective\": \"2022-01-01T00:00:00Z\",\n    \"date_previous_canceled\": null,\n    \"is_owned\": true,\n    \"address\": {\n        \"zipcode\": 99999,\n        \"state\": \"WA\"\n    },\n    \"cost_monthly\": 9.4905,\n    \"cost_biannually\": 56.943\n}"
+							"body": "{\n    \"qid\": \"ZQMDJPS98O\",\n    \"date_effective\": \"2022-01-01T00:00:00Z\",\n    \"date_previous_canceled\": null,\n    \"is_owned\": true,\n    \"address\": {\n        \"zipcode\": 99999,\n        \"state\": \"MO\"\n    },\n    \"cost_monthly\": \"6.99\",\n    \"cost_biannually\": \"41.96\",\n    \"breakdown_monthly\": {\n        \"fees\": {\n            \"canceled\": {\n                \"applies\": false,\n                \"multiplier\": 0.15,\n                \"money\": 0\n            },\n            \"state_with_volcano\": {\n                \"applies\": false,\n                \"multiplier\": 0.25,\n                \"money\": 0\n            }\n        },\n        \"discounts\": {\n            \"canceled\": {\n                \"applies\": true,\n                \"multiplier\": 0.1,\n                \"money\": 1\n            },\n            \"owns_property\": {\n                \"applies\": true,\n                \"multiplier\": 0.2,\n                \"money\": 2\n            }\n        }\n    },\n    \"breakdown_biannually\": {\n        \"fees\": {\n            \"canceled\": {\n                \"applies\": false,\n                \"multiplier\": 0.15,\n                \"money\": 0\n            },\n            \"state_with_volcano\": {\n                \"applies\": false,\n                \"multiplier\": 0.25,\n                \"money\": 0\n            }\n        },\n        \"discounts\": {\n            \"canceled\": {\n                \"applies\": true,\n                \"multiplier\": 0.1,\n                \"money\": 5.99\n            },\n            \"owns_property\": {\n                \"applies\": true,\n                \"multiplier\": 0.2,\n                \"money\": 11.99\n            }\n        }\n    }\n}"
 						}
 					]
 				},
@@ -432,13 +353,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/quotes/521WX5OE5J/",
+							"raw": "{{host}}/quote/quotes/ZQMDJPS98O/",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
+								"quote",
 								"quotes",
-								"521WX5OE5J",
+								"ZQMDJPS98O",
 								""
 							]
 						}
@@ -459,13 +381,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/quotes/521WX5OE5J/",
+									"raw": "{{host}}/quote/quotes/ZQMDJPS98O/",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
+										"quote",
 										"quotes",
-										"521WX5OE5J",
+										"ZQMDJPS98O",
 										""
 									]
 								}
@@ -476,7 +399,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sat, 28 May 2022 18:02:40 GMT"
+									"value": "Sat, 28 May 2022 22:26:57 GMT"
 								},
 								{
 									"key": "Server",
@@ -500,7 +423,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "202"
+									"value": "790"
 								},
 								{
 									"key": "X-Content-Type-Options",
@@ -509,14 +432,10 @@
 								{
 									"key": "Referrer-Policy",
 									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"qid\": \"YEWMZ53W26\",\n    \"date_effective\": \"2022-01-01T00:00:00Z\",\n    \"date_previous_canceled\": \"2022-01-01\",\n    \"is_owned\": true,\n    \"address\": {\n        \"zipcode\": 99999,\n        \"state\": \"WA\"\n    },\n    \"cost_monthly\": 11.988,\n    \"cost_biannually\": 71.928\n}"
+							"body": "{\n    \"qid\": \"ZQMDJPS98O\",\n    \"date_effective\": \"2022-01-01T00:00:00Z\",\n    \"date_previous_canceled\": \"2022-01-01\",\n    \"is_owned\": true,\n    \"address\": {\n        \"zipcode\": 99999,\n        \"state\": \"WA\"\n    },\n    \"cost_monthly\": \"11.99\",\n    \"cost_biannually\": \"71.92\",\n    \"breakdown_monthly\": {\n        \"fees\": {\n            \"canceled\": {\n                \"applies\": true,\n                \"multiplier\": 0.15,\n                \"money\": 1.5\n            },\n            \"state_with_volcano\": {\n                \"applies\": true,\n                \"multiplier\": 0.25,\n                \"money\": 2.5\n            }\n        },\n        \"discounts\": {\n            \"canceled\": {\n                \"applies\": false,\n                \"multiplier\": 0.1,\n                \"money\": 0\n            },\n            \"owns_property\": {\n                \"applies\": true,\n                \"multiplier\": 0.2,\n                \"money\": 2\n            }\n        }\n    },\n    \"breakdown_biannually\": {\n        \"fees\": {\n            \"canceled\": {\n                \"applies\": true,\n                \"multiplier\": 0.15,\n                \"money\": 8.99\n            },\n            \"state_with_volcano\": {\n                \"applies\": true,\n                \"multiplier\": 0.25,\n                \"money\": 14.98\n            }\n        },\n        \"discounts\": {\n            \"canceled\": {\n                \"applies\": false,\n                \"multiplier\": 0.1,\n                \"money\": 0\n            },\n            \"owns_property\": {\n                \"applies\": true,\n                \"multiplier\": 0.2,\n                \"money\": 11.99\n            }\n        }\n    }\n}"
 						}
 					]
 				},
@@ -526,31 +445,33 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/quotes/521WX5OE5J/",
+							"raw": "{{host}}/quote/quotes/ZQMDJPS98O/",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
+								"quote",
 								"quotes",
-								"521WX5OE5J",
+								"ZQMDJPS98O",
 								""
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "New Request",
+							"name": "Delete Quote",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/quotes/521WX5OE5J/",
+									"raw": "{{host}}/quote/quotes/ZQMDJPS98O/",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
+										"quote",
 										"quotes",
-										"521WX5OE5J",
+										"ZQMDJPS98O",
 										""
 									]
 								}
@@ -561,7 +482,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sat, 28 May 2022 18:03:35 GMT"
+									"value": "Sat, 28 May 2022 22:27:17 GMT"
 								},
 								{
 									"key": "Server",
@@ -590,10 +511,6 @@
 								{
 									"key": "Referrer-Policy",
 									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
 								}
 							],
 							"cookie": [],
@@ -602,6 +519,340 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "QuotePurchase",
+			"item": [
+				{
+					"name": "Execute Purchase",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quote_id\": \"YBG3SGYA4N\",\n    \"payment_frequency\": \"Biannually\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/quote/purchase/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"quote",
+								"purchase",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Execute Purchase",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"quote_id\": \"YBG3SGYA4N\",\n    \"payment_frequency\": \"Biannually\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/quote/purchase/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"quote",
+										"purchase",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 28 May 2022 22:27:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "950"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"payment_frequency\": \"Biannually\",\n    \"payment_amount\": 41.96,\n    \"quote\": {\n        \"qid\": \"YBG3SGYA4N\",\n        \"date_effective\": \"2022-01-01T00:00:00Z\",\n        \"date_previous_canceled\": null,\n        \"is_owned\": true,\n        \"address\": {\n            \"zipcode\": 99999,\n            \"state\": \"MO\"\n        },\n        \"cost_monthly\": \"6.99\",\n        \"cost_biannually\": \"41.96\",\n        \"breakdown_monthly\": {\n            \"fees\": {\n                \"canceled\": {\n                    \"applies\": false,\n                    \"multiplier\": 0.15,\n                    \"money\": 0\n                },\n                \"state_with_volcano\": {\n                    \"applies\": false,\n                    \"multiplier\": 0.25,\n                    \"money\": 0\n                }\n            },\n            \"discounts\": {\n                \"canceled\": {\n                    \"applies\": true,\n                    \"multiplier\": 0.1,\n                    \"money\": 1\n                },\n                \"owns_property\": {\n                    \"applies\": true,\n                    \"multiplier\": 0.2,\n                    \"money\": 2\n                }\n            }\n        },\n        \"breakdown_biannually\": {\n            \"fees\": {\n                \"canceled\": {\n                    \"applies\": false,\n                    \"multiplier\": 0.15,\n                    \"money\": 0\n                },\n                \"state_with_volcano\": {\n                    \"applies\": false,\n                    \"multiplier\": 0.25,\n                    \"money\": 0\n                }\n            },\n            \"discounts\": {\n                \"canceled\": {\n                    \"applies\": true,\n                    \"multiplier\": 0.1,\n                    \"money\": 5.99\n                },\n                \"owns_property\": {\n                    \"applies\": true,\n                    \"multiplier\": 0.2,\n                    \"money\": 11.99\n                }\n            }\n        }\n    },\n    \"discount_canceled_amt\": 5.99,\n    \"discount_owns_property_amt\": 11.99,\n    \"fee_canceled_amt\": 0,\n    \"fee_state_amt\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "View All Purchases",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quote_id\": \"YBG3SGYA4N\",\n    \"payment_frequency\": \"Biannually\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/quote/purchase/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"quote",
+								"purchase",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "View All Purchases",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"quote_id\": \"YBG3SGYA4N\",\n    \"payment_frequency\": \"Biannually\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/quote/purchase/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"quote",
+										"purchase",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 28 May 2022 22:30:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1009"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"payment_frequency\": \"Biannually\",\n            \"payment_amount\": 41.96,\n            \"quote\": {\n                \"qid\": \"YBG3SGYA4N\",\n                \"date_effective\": \"2022-01-01T00:00:00Z\",\n                \"date_previous_canceled\": null,\n                \"is_owned\": true,\n                \"address\": {\n                    \"zipcode\": 99999,\n                    \"state\": \"MO\"\n                },\n                \"cost_monthly\": \"6.99\",\n                \"cost_biannually\": \"41.96\",\n                \"breakdown_monthly\": {\n                    \"fees\": {\n                        \"canceled\": {\n                            \"applies\": false,\n                            \"multiplier\": 0.15,\n                            \"money\": 0\n                        },\n                        \"state_with_volcano\": {\n                            \"applies\": false,\n                            \"multiplier\": 0.25,\n                            \"money\": 0\n                        }\n                    },\n                    \"discounts\": {\n                        \"canceled\": {\n                            \"applies\": true,\n                            \"multiplier\": 0.1,\n                            \"money\": 1\n                        },\n                        \"owns_property\": {\n                            \"applies\": true,\n                            \"multiplier\": 0.2,\n                            \"money\": 2\n                        }\n                    }\n                },\n                \"breakdown_biannually\": {\n                    \"fees\": {\n                        \"canceled\": {\n                            \"applies\": false,\n                            \"multiplier\": 0.15,\n                            \"money\": 0\n                        },\n                        \"state_with_volcano\": {\n                            \"applies\": false,\n                            \"multiplier\": 0.25,\n                            \"money\": 0\n                        }\n                    },\n                    \"discounts\": {\n                        \"canceled\": {\n                            \"applies\": true,\n                            \"multiplier\": 0.1,\n                            \"money\": 5.99\n                        },\n                        \"owns_property\": {\n                            \"applies\": true,\n                            \"multiplier\": 0.2,\n                            \"money\": 11.99\n                        }\n                    }\n                }\n            },\n            \"discount_canceled_amt\": 5.99,\n            \"discount_owns_property_amt\": 11.99,\n            \"fee_canceled_amt\": 0,\n            \"fee_state_amt\": 0,\n            \"pk\": 8\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "View One Purchase",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quote_id\": \"YBG3SGYA4N\",\n    \"payment_frequency\": \"Biannually\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/quote/purchase/8/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"quote",
+								"purchase",
+								"8",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "View One Purchase",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"quote_id\": \"YBG3SGYA4N\",\n    \"payment_frequency\": \"Biannually\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/quote/purchase/8/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"quote",
+										"purchase",
+										"8",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 28 May 2022 22:31:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "957"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"payment_frequency\": \"Biannually\",\n    \"payment_amount\": 41.96,\n    \"quote\": {\n        \"qid\": \"YBG3SGYA4N\",\n        \"date_effective\": \"2022-01-01T00:00:00Z\",\n        \"date_previous_canceled\": null,\n        \"is_owned\": true,\n        \"address\": {\n            \"zipcode\": 99999,\n            \"state\": \"MO\"\n        },\n        \"cost_monthly\": \"6.99\",\n        \"cost_biannually\": \"41.96\",\n        \"breakdown_monthly\": {\n            \"fees\": {\n                \"canceled\": {\n                    \"applies\": false,\n                    \"multiplier\": 0.15,\n                    \"money\": 0\n                },\n                \"state_with_volcano\": {\n                    \"applies\": false,\n                    \"multiplier\": 0.25,\n                    \"money\": 0\n                }\n            },\n            \"discounts\": {\n                \"canceled\": {\n                    \"applies\": true,\n                    \"multiplier\": 0.1,\n                    \"money\": 1\n                },\n                \"owns_property\": {\n                    \"applies\": true,\n                    \"multiplier\": 0.2,\n                    \"money\": 2\n                }\n            }\n        },\n        \"breakdown_biannually\": {\n            \"fees\": {\n                \"canceled\": {\n                    \"applies\": false,\n                    \"multiplier\": 0.15,\n                    \"money\": 0\n                },\n                \"state_with_volcano\": {\n                    \"applies\": false,\n                    \"multiplier\": 0.25,\n                    \"money\": 0\n                }\n            },\n            \"discounts\": {\n                \"canceled\": {\n                    \"applies\": true,\n                    \"multiplier\": 0.1,\n                    \"money\": 5.99\n                },\n                \"owns_property\": {\n                    \"applies\": true,\n                    \"multiplier\": 0.2,\n                    \"money\": 11.99\n                }\n            }\n        }\n    },\n    \"discount_canceled_amt\": 5.99,\n    \"discount_owns_property_amt\": 11.99,\n    \"fee_canceled_amt\": 0,\n    \"fee_state_amt\": 0,\n    \"pk\": 8\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Swagger Docs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/swagger/?format=openapi",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"swagger",
+						""
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "openapi"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

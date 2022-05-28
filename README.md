@@ -2,7 +2,7 @@ note: this is a programming exercise
 
 # Insurance Quote API
 
-## How to run server
+## Setup and Run Server
 
 Linux/Mac
 ```shell
@@ -19,24 +19,39 @@ additional `python manage.py createsuperuser` would need to be
 run before running the server, after the migration.
 
 ## Web UI
-Navigating to localhost:8000/ (by default) will display a GUI
+Navigating to `http://localhost:8000/quote/` (by default) will display a GUI
 for Django Rest Framework.
+
+Also added: 
+- `http://localhost:8000/swagger/` - Swagger UI with the option 
+for `?format=openapi` to include a json swagger doc.
+- `http://localhost:8000/redoc/` - ReDoc UI 
 
 ## API Endpoints
 Note: there is a file `Insurance Api.postman_collection.json` with all
 the endpoints and examples of each available in the root directory of 
 this project.
+
+Note 2: Swagger and ReDoc UI and json is available through the `drf_yasg` package
+
 ### Quote App
-Available Tested Methods:
+Available Tested Quote Methods:
 - GET
-  - Get All URL (paginated): `/quotes/?format=json`
-  - Get One URL: `/quotes/<quote_qid>/?format=json`
+  - Get All URL (paginated): `/quote/quotes/?format=json`
+  - Get One URL: `/quote/quotes/<quote_qid>/?format=json`
 - PATCH
-  - Edit Quote: `/quotes/<quote_qid>/` (+json payload required)
+  - Edit Quote: `/quote/quotes/<quote_qid>/` (+json payload required)
 - POST
-  - Create Quote: `/quotes/<quote_qid>/` (+json payload required)
+  - Create Quote: `/quote/quotes/` (+json payload required)
 - DELETE
-  - Delete Quote: `/quotes/<quote_qid>/`
+  - Delete Quote: `/quote/quotes/<quote_qid>/`
+
+Available Tested Purchase Methods:
+- GET
+  - Get All URL (paginated): `/quote/purchase/?format=json`
+  - Get One URL: `/quote/purchase/<purchase_fk>/?format=json`
+- POST
+  - Create Quote: `/quote/purchase/` (+json payload required)
 
 ## Testing
 To run all the tests (with venv enabled, no server running):
