@@ -20,8 +20,8 @@ class TestQuoteCreate(APITestCase):
             "date_effective": "2022-01-01T00:00:00Z",
             "date_previous_canceled": "2022-01-01",
             "is_owned": False,
-            "cost_monthly": 13.986,
-            "cost_biannually": 83.916,
+            "cost_monthly": "13.99",
+            "cost_biannually": "83.92",
             "address": {"zipcode": 99999, "state": "WA"},
         }
 
@@ -59,8 +59,8 @@ class TestQuoteGet(APITestCase):
             "date_effective": "2022-01-01T00:00:00Z",
             "date_previous_canceled": "2022-01-01",
             "is_owned": False,
-            "cost_monthly": 13.986,
-            "cost_biannually": 83.916,
+            "cost_monthly": "13.99",
+            "cost_biannually": "83.92",
             "address": {"zipcode": 99999, "state": "WA"},
         }
 
@@ -108,8 +108,8 @@ class TestQuoteEdit(APITestCase):
             "date_previous_canceled": None,
             "is_owned": True,
             "address": {"zipcode": 99999, "state": "WA"},
-            "cost_monthly": 9.4905,
-            "cost_biannually": 56.943,
+            "cost_monthly": "9.49",
+            "cost_biannually": "56.94",
         }
 
 
@@ -130,8 +130,8 @@ class TestQuoteDelete(APITestCase):
             "date_effective": "2022-01-01T00:00:00Z",
             "date_previous_canceled": "2022-01-01",
             "is_owned": False,
-            "cost_monthly": 13.986,
-            "cost_biannually": 83.916,
+            "cost_monthly": "13.99",
+            "cost_biannually": "83.92",
             "address": {"zipcode": 99999, "state": "WA"},
         }
 

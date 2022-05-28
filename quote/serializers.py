@@ -62,7 +62,7 @@ class QuoteSerializer(serializers.ModelSerializer):
         return super().validate(attrs)
 
     def get_cost_biannually(self, obj):
-        return obj.cost_biannually
+        return "{:.2f}".format(round(obj.cost_biannually, 2))
 
     def get_cost_monthly(self, obj):
-        return obj.cost_monthly
+        return "{:.2f}".format(round(obj.cost_monthly, 2))
