@@ -3,12 +3,15 @@ from random import choice
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from utils.const import DISCOUNTS
 from utils.const import FEES
 from utils.const import VOLCANO_INSURANCE
 
 LETTERS_AND_NUMBERS = string.ascii_uppercase + string.digits
+
+__all__ = ["Address", "Quote", "QuotePurchase"]
 
 
 class Address(models.Model):
@@ -94,9 +97,12 @@ class Quote(models.Model):
     date_previous_canceled = models.DateField(null=True)
     is_owned = models.BooleanField(null=False)
     address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True)
+    date_created = models.DateTimeField(auto_now_add=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        # init values used to cache fee calculations
         self._cost_monthly = None
         self._cost_biannually = None
         self._breakdown_monthly = None
@@ -148,17 +154,17 @@ class Quote(models.Model):
         discounts = self.discounts
         for modifier in fees.values():
             if modifier["applies"]:
-                modifier["money"] = base_cost * modifier["multiplier"]
+                modifier["money"] = round(base_cost * modifier["multiplier"], 2)
                 policy_cost += modifier["money"]
             else:
                 modifier["money"] = 0
         for modifier in discounts.values():
             if modifier["applies"]:
-                modifier["money"] = base_cost * modifier["multiplier"]
+                modifier["money"] = round(base_cost * modifier["multiplier"], 2)
                 policy_cost -= modifier["money"]
             else:
                 modifier["money"] = 0
-        return policy_cost, {"fees": fees, "disctounts": discounts}
+        return round(policy_cost, 2), {"fees": fees, "discounts": discounts}
 
     @property
     def cost_and_breakdown_biannually(self):
@@ -190,4 +196,21 @@ class Quote(models.Model):
 
     @property
     def breakdown_monthly(self):
-        return self.cost_and_breakdown_monthly[0]
+        return self.cost_and_breakdown_monthly[1]
+
+
+class QuotePurchase(models.Model):
+    class PaymentFrequencyOptions(models.TextChoices):
+        BIANNUALLY = "BA", _("Biannually")
+        MONTHLY = "MO", _("Monthly")
+
+    quote = models.ForeignKey(Quote, on_delete=models.SET_NULL, null=True)
+    payment_amount = models.FloatField(null=False)
+    payment_frequency = models.CharField(
+        choices=PaymentFrequencyOptions.choices, null=False, max_length=2
+    )
+    date_created = models.DateTimeField(auto_now_add=True)
+    discount_canceled_amt = models.FloatField(default=0)
+    discount_owns_property_amt = models.FloatField(default=0)
+    fee_canceled_amt = models.FloatField(default=0)
+    fee_state_amt = models.FloatField(default=0)
