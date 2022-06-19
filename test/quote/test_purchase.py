@@ -1,8 +1,5 @@
 from rest_framework.test import APITestCase
 
-from quote.models import Quote
-from quote.models import QuotePurchase
-
 
 class TestPurchaseCreate(APITestCase):
     def test_create(self):
@@ -15,7 +12,7 @@ class TestPurchaseCreate(APITestCase):
         qid = self.client.post("/quote/quotes/", data, format="json").json()["qid"]
 
         response = self.client.post(
-            f"/quote/purchase/",
+            "/quote/purchase/",
             {"quote_id": qid, "payment_frequency": "Monthly"},
             format="json",
         ).json()
@@ -93,12 +90,12 @@ class TestPurchaseGet(APITestCase):
 
         # create purchase record
         self.client.post(
-            f"/quote/purchase/",
+            "/quote/purchase/",
             {"quote_id": qid, "payment_frequency": "Monthly"},
             format="json",
         ).json()
 
-        response = self.client.get(f"/quote/purchase/1/", format="json").json()
+        response = self.client.get("/quote/purchase/1/", format="json").json()
 
         assert response == {
             "payment_frequency": "Monthly",
@@ -171,9 +168,9 @@ class TestPurchaseGet(APITestCase):
 
         # create purchase record
         data = {"quote_id": qid, "payment_frequency": "Monthly"}
-        [self.client.post(f"/quote/purchase/", data, format="json") for _ in range(10)]
+        [self.client.post("/quote/purchase/", data, format="json") for _ in range(10)]
 
-        response = self.client.get(f"/quote/purchase/", format="json").json()
+        response = self.client.get("/quote/purchase/", format="json").json()
 
         assert response["count"] == 10
         assert "next" in response

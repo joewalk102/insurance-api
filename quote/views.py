@@ -1,10 +1,8 @@
 from rest_framework import viewsets
-from rest_framework import permissions
 from quote.serializers import QuoteSerializer
 from quote.serializers import QuotePurchaseSerializer
 from quote.models import Quote
 from quote.models import QuotePurchase
-from utils.filters import AllowStaffLimitUserFilterBackend
 
 __all__ = ["QuoteViewSet", "QuotePurchaseViewSet"]
 

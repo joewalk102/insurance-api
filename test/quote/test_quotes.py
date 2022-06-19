@@ -142,7 +142,7 @@ class TestQuoteGet(APITestCase):
         # create 5 quotes
         [self.client.post("/quote/quotes/", data, format="json") for _ in range(5)]
 
-        response = self.client.get(f"/quote/quotes/", format="json").json()
+        response = self.client.get("/quote/quotes/", format="json").json()
 
         assert response["count"] == 5
         assert "next" in response
